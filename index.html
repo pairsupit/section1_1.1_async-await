@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>This is TEST file</title>
+</head>
+
+<body>
+    <script>
+      // solution_1
+          async function thisIsSyncFunction() {
+            let result = 0;
+            let resposne = await fetch('http://localhost:3000/data');
+            let res = await resposne.json();
+            result = res.data;
+            return result
+          }
+
+        async function main(){
+            var number1 = thisIsSyncFunction();
+            const calculation =  await number1 * 10;
+            console.log('calculation : ' + calculation); 
+        }
+      main();
+	  </script>
+</body>
+
+</html>
